@@ -217,6 +217,18 @@ public class ENHSP {
 
     }
 
+    public void retrieveHeuristicValue() {
+        try {
+            setHeuristic();
+            float res = h.computeEstimate(problem.getInit());
+            System.out.println("Heuristic Value: " + res);
+
+            System.gc();
+        } catch (Exception ex) {
+            Logger.getLogger(ENHSP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     public void parseInput(String[] args) {
         Options options = new Options();
         options.addRequiredOption("o", "domain", true, "PDDL domain file");
